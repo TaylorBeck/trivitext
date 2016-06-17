@@ -2,19 +2,19 @@ body {
   background-color: #292F36;
 }
 
-#text-form {
+#text-form-container {
   border-radius: 20px;
   background-color: #4ECDC4;
   margin-top: 10em;
   margin-right: 35%;
   margin-left: 35%;
-  border: 2px solid red;
+  /*border: 2px solid red;*/
   text-align: center;
-  padding: 3em;
+  padding: 2em;
 }
 
 
-#text-form input {
+#text-form-container input {
   margin-top: 1em;
   width: 120px;
   height: 40px;
@@ -22,10 +22,14 @@ body {
   width: 85%;
 }
 
-#text-form h2 {
+#text-form-container h2 {
  color: #292F36;
  font-size: 300%;
  font-family: "HelveticaNeue-Light";
+}
+
+#text-form-container p {
+  margin-bottom: 1em;
 }
 
 /*#submit-button {
