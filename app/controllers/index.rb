@@ -5,9 +5,11 @@ end
 post '/send_sms' do
   to = params["to"]
 
+  p params
+
   phone_number = "+1" + to.gsub(/\D/, '')
 
-  user = User.find_or_create_by!(phone_number: phone_number, points: 0)
+  user = User.find_or_create_by!(phone_number: phone_number)
   # clue = JAPI::Trebek.random.first
   clue = four_letter_words.sample
 
@@ -28,6 +30,18 @@ end
 post '/receive_sms' do
   content_type 'text/xml'
 
+  if params["Body"] == 'stats'
+    response = Twilio::TwiML::Response.new do |r|
+      r.Message "You have #{user.points} points!"
+    end
+
+    response.text
+    redirect '/'
+  elsif params["Body"].downcase == 'new question'
+
+  # NEED TO IMPLEMENT THIS
+  else
+
   user_guess = params["Body"]
   from_number = params["From"]
 
@@ -44,6 +58,7 @@ post '/receive_sms' do
         media_url: 'http://i.imgur.com/Orfey1R.jpg'
       )
 
+      user.points += 10
     else
       message = 'Incorrect! Try again.'
     end
@@ -54,6 +69,7 @@ post '/receive_sms' do
 
     response.text
   end
+end
 end
 
 
