@@ -35,7 +35,6 @@ post '/receive_sms' do
     response.text
   elsif user_message.downcase == 'play again'
 
-  # NEED TO IMPLEMENT THIS
   else
 
   if user
