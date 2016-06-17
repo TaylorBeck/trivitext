@@ -1,0 +1,21 @@
+body {
+  background-color: #060CE9;
+}
+
+#text-form {
+  border-radius: 20px;
+  background-color: lightgray;
+  margin-top: 10em;
+  margin-right: 35%;
+  margin-left: 35%;
+  border: 2px solid black;
+  text-align: center;
+  padding: 3em;
+}
+
+
+#text-form input {
+  margin-top: 1em;
+  width: 120px;
+  height: 40px;
+}

@@ -20,6 +20,20 @@ require "sinatra/reloader" if development?
 
 require 'erb'
 
+require 'twilio-ruby'
+
+require 'japi'
+
+GAME_NUMBER = '+13479604136'
+
+account_sid = 'ACa53c340f9ed46fc7f660c9dc96b00f43'
+auth_token = 'f99b7d459bb28b9dc0002a5c31022366'
+
+Twilio.configure do |config|
+  config.account_sid = account_sid
+  config.auth_token = auth_token
+end
+
 # Some helper constants for path-centric logic
 APP_ROOT = Pathname.new(File.expand_path('../../', __FILE__))
 
