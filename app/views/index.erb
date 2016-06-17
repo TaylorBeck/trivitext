@@ -6,5 +6,11 @@
     <input id="submit-button" type="submit" value="Text me trivia">
   </form>
   <p id="good-luck">Good luck!</p>
-  <a id="play-again" href="/">Play again</a>
+  <a id="play-again" href="/">Play again</a><br>
+  <a id="high-scores-link" href="/">High Scores</a>
+
+<div id="high-scores">
+  <%= erb :'users/_users_scores', locals: { users: @users } %>
+</div>
+
 </div>

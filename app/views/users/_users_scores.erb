@@ -1,0 +1,5 @@
+<a id="hide-scores" href="/">Hide</a>
+<h5>High Scores</h5>
+<% users.each do |user| %>
+  <%= erb :'users/_user_score', locals: { user: user } %>
+<% end %>

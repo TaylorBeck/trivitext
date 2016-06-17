@@ -2,6 +2,7 @@ $(document).ready(function() {
 
   $('#play-again').hide();
   $('#good-luck').hide();
+  $('#high-scores').hide();
 
   $('#text-form').on('submit', function(event){
     event.preventDefault();
@@ -28,4 +29,19 @@ $(document).ready(function() {
     $('#good-luck').hide();
     $('#text-form').show('slow');
   })
+
+  $('#high-scores-link').on('click', function(event){
+    event.preventDefault();
+
+    $(this).hide();
+    $('#high-scores').show('slow');
+  });
+
+  $('#hide-scores').on('click', function(event){
+    event.preventDefault();
+
+    $('#high-scores').hide('slow');
+    $('#high-scores-link').show('slow')
+  });
+
 });
