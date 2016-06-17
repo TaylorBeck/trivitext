@@ -20,6 +20,8 @@ gem 'twilio-ruby'
 
 gem 'japi'
 
+gem 'dotenv'
+
 group :test do
   gem 'shoulda-matchers'
   gem 'rack-test'

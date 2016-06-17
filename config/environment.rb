@@ -24,6 +24,9 @@ require 'twilio-ruby'
 
 require 'japi'
 
+require 'dotenv'
+Dotenv.load
+
 GAME_NUMBER = '+13479604136'
 
 account_sid = 'ACa53c340f9ed46fc7f660c9dc96b00f43'

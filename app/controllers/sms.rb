@@ -1,7 +1,11 @@
 post '/send_sms' do
-  to = params["to"]
+  p "#{params} ================================================"
+  to = params[:to] if params[:to]
+  to = params["to"] if params["to"]
 
-  phone_number = "+1" + to.gsub(/\D/, '')
+  phone_number = "+#{to}".gsub(/\s+/, '')
+
+  phone_number = "+1" + to.gsub(/\D/, '') unless params[:to]
 
   user = User.find_or_create_by!(phone_number: phone_number)
   # clue = JAPI::Trebek.random.first
@@ -34,7 +38,7 @@ post '/receive_sms' do
 
     response.text
   elsif user_message.downcase == 'play again'
-
+    redirect "/send_sms?to=#{from_number}"
   else
 
   if user
