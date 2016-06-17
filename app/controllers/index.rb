@@ -30,22 +30,21 @@ end
 post '/receive_sms' do
   content_type 'text/xml'
 
+  user_guess = params["Body"]
+  from_number = params["From"]
+
+  user = User.find_by(phone_number: from_number)
+
   if params["Body"] == 'stats'
     response = Twilio::TwiML::Response.new do |r|
       r.Message "You have #{user.points} points!"
     end
 
     response.text
-    redirect '/'
   elsif params["Body"].downcase == 'new question'
 
   # NEED TO IMPLEMENT THIS
-  else
-
-  user_guess = params["Body"]
-  from_number = params["From"]
-
-  user = User.find_by(phone_number: from_number)
+else
 
   if user
 
@@ -56,7 +55,7 @@ post '/receive_sms' do
         from: GAME_NUMBER,
         to: from_number,
         media_url: 'http://i.imgur.com/Orfey1R.jpg'
-      )
+        )
 
       user.points += 10
     else

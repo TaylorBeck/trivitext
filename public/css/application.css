@@ -1,14 +1,14 @@
 body {
-  background-color: #060CE9;
+  background-color: #292F36;
 }
 
 #text-form {
   border-radius: 20px;
-  background-color: lightgray;
+  background-color: #4ECDC4;
   margin-top: 10em;
   margin-right: 35%;
   margin-left: 35%;
-  border: 2px solid black;
+  border: 2px solid red;
   text-align: center;
   padding: 3em;
 }
@@ -18,4 +18,18 @@ body {
   margin-top: 1em;
   width: 120px;
   height: 40px;
+  text-align: center;
+  width: 85%;
+}
+
+#text-form h2 {
+ border: #292F36;
+}
+
+#submit-button {
+  border-radius: 10px;
+}
+
+#number-field {
+  background-color: #FFFFFF;
 }
