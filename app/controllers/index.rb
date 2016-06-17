@@ -7,7 +7,7 @@ post '/send_sms' do
 
   phone_number = "+1" + to.gsub(/\D/, '')
 
-  user = User.find_or_create_by!(phone_number: phone_number)
+  user = User.find_or_create_by!(phone_number: phone_number, points: 0)
   # clue = JAPI::Trebek.random.first
   clue = four_letter_words.sample
 
