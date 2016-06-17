@@ -1,12 +1,4 @@
 get '/' do
-  # @client = Twilio::REST::Client.new
-
-#   @client.messages.create(
-#   from: '+13479604136',
-#   to: '+18583362522',
-#   body: 'Hey there!'
-# )
-
   erb :index
 end
 
