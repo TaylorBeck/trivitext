@@ -23,13 +23,28 @@ body {
 }
 
 #text-form h2 {
- border: #292F36;
+ color: #292F36;
+ font-size: 300%;
+ font-family: "HelveticaNeue-Light";
 }
 
-#submit-button {
+/*#submit-button {
   border-radius: 10px;
-}
+}*/
 
 #number-field {
   background-color: #FFFFFF;
+}
+
+input[type=submit] {
+    padding:5px 15px;
+    background:#ccc;
+    border:0 none;
+    cursor:pointer;
+    -webkit-border-radius: 5px;
+    border-radius: 5px;
+}
+
+input[type=submit]:hover {
+  background-color: #939393;
 }
