@@ -1,6 +1,8 @@
 # Trivitext
 Trivitext lets you play Jeopardy on your phone via text messages. It utilizes Twilio to send and receive SMS and MMS messages, tracks the amount of points players earn on a leaderboard, and offers simple text commands like "stats" so you can instantly see your progress. Trivitext was born out of my love for all things trivia and Alex Trebek.
 
+![Trivitext Preview](http://i.imgur.com/wjSXbwv.png)
+
 ## Play Trivitext here:
 [trivitext.herokuapp.com](https://trivitext.herokuapp.com)
 
