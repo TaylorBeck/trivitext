@@ -63,13 +63,12 @@ post '/receive_sms' do
     else
       message = 'Incorrect! Try again.'
     end
-  end
+    # send sms response back to player
+    response = Twilio::TwiML::Response.new do |r|
+      r.Message message
+    end
 
-  # send sms response back to player
-  response = Twilio::TwiML::Response.new do |r|
-    r.Message message
+    # render instructions for Twilio as XML
+    response.text 
   end
-
-  # render instructions for Twilio as XML
-  response.text
 end
