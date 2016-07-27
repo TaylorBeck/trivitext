@@ -27,14 +27,9 @@ require 'japi'
 require 'dotenv'
 Dotenv.load
 
-GAME_NUMBER = '+13479604136'
-
-account_sid = 'ACa53c340f9ed46fc7f660c9dc96b00f43'
-auth_token = 'f99b7d459bb28b9dc0002a5c31022366'
-
 Twilio.configure do |config|
-  config.account_sid = account_sid
-  config.auth_token = auth_token
+  config.account_sid = ENV['TWILIO_ACCOUNT_SID']
+  config.auth_token = ENV['TWILIO_AUTH_TOKEN']
 end
 
 # Some helper constants for path-centric logic

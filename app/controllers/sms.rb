@@ -16,7 +16,7 @@ post '/send_sms' do
   message = clue.question
 
   current_client.messages.create(
-    from: GAME_NUMBER,
+    from: ENV['TWILIO_GAME_NUMBER'],
     to: to,
     body: message
   )
@@ -47,7 +47,7 @@ post '/receive_sms' do
       message = 'Correct!'
 
       current_client.messages.create(
-        from: GAME_NUMBER,
+        from: ENV['TWILIO_GAME_NUMBER'],
         to: from_number,
         media_url: 'http://i.imgur.com/Orfey1R.jpg'
         )
