@@ -1,4 +1,4 @@
 get '/' do
-  @users = User.order(points: :desc)
+  @users = User.order_by_points
   erb :index
 end

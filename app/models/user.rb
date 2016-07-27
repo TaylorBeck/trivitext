@@ -5,6 +5,10 @@ class User < ActiveRecord::Base
 
   has_many :clues
 
+  def self.order_by_points
+    User.order(points: :desc)
+  end
+
   def default_values
     self.points ||= 0
   end
