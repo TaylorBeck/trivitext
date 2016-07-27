@@ -40,19 +40,16 @@ post '/receive_sms' do
   user = User.find_by(phone_number: from_number)
   
   if user 
-    if user_message.casecmp('stats')
+    if user_message.downcase == 'stats'
+      message = "You have #{user.points} points!"
+      twilio_response(message)
 
-      response = Twilio::TwiML::Response.new do |r|
-        r.Message "You have #{user.points} points!"
-      end
-      response.text
-
-    elsif user_message.casecmp('play again')
+    elsif user_message.downcase == 'play again'
       redirect "/send_sms?to=#{from_number}"
 
-    elsif user_message.casecmp(user.clues.last.answer.downcase)
+    elsif user_message.downcase == user.clues.last.answer.downcase
       message = 'Correct!'
-
+      
       current_client.messages.create(
         from: ENV['TWILIO_GAME_NUMBER'],
         to: from_number,
@@ -60,16 +57,12 @@ post '/receive_sms' do
         )
 
       user.update(points: user.points + 10)
+
+      twilio_response(message)
     else
       message = 'Incorrect! Try again.'
+
+      twilio_response(message)
     end
   end
-
-  # send sms response back to player
-  response = Twilio::TwiML::Response.new do |r|
-    r.Message message
-  end
-
-  # render instructions for Twilio as XML
-  response.text
 end
